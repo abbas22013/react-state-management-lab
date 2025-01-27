@@ -1,16 +1,125 @@
-#root {
-  margin: 16px;
+/* App.css */
+
+/* Basic styles for the app */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
+h1, h2, h3 {
+  color: #333;
+}
+
+/* Container to center the content */
+div {
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for available fighters */
 ul {
-  display: flex;
-  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
 }
 
 li {
-  list-style: none;
-  margin: 8px;
-  padding: 8px;
-  border: whitesmoke 3px solid;
+  border: 2px solid #ddd;
   border-radius: 8px;
+  padding: 16px;
+  background-color: #fafafa;
+  text-align: center;
+}
+
+li img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+button {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+/* Styling for the team list */
+.team-list {
+  margin-top: 30px;
+}
+
+.team-list ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.team-list li {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fafafa;
+  width: 200px;
+  text-align: center;
+}
+
+.team-list li img {
+  width: 100%;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.team-list button {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.team-list button:hover {
+  background-color: #c82333;
+}
+
+/* Styling for the money and totals */
+p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+h3 {
+  color: #007bff;
 }
