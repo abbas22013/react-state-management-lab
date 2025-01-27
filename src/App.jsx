@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
 
-
 const App = () => {
   // State variables
   const [team, setTeam] = useState([]);
@@ -19,19 +18,23 @@ const App = () => {
     { id: 10, name: 'Leader', price: 22, strength: 7, agility: 6, img: 'https://pages.git.generalassemb.ly/modular-curriculum-all-courses/react-state-management-lab/assets/e41f26.png' },
   ]);
 
-  // Function to handle adding a fighter to the team
+  // State for error message
+  const [errorMessage, setErrorMessage] = useState('');
+
+  // Function to add a fighter to the team
   const handleAddFighter = (fighter) => {
     if (money < fighter.price) {
-      console.log('Not enough money');
+      setErrorMessage('Not enough money!');
       return;
     }
     
+    setErrorMessage(''); // Clear error message on successful add
     setTeam(prevTeam => [...prevTeam, fighter]);
     setMoney(prevMoney => prevMoney - fighter.price);
     setZombieFighters(prevFighters => prevFighters.filter(f => f.id !== fighter.id));
   };
 
-  // Function to handle removing a fighter from the team
+  // Function to remove a fighter from the team
   const handleRemoveFighter = (fighter) => {
     setTeam(prevTeam => prevTeam.filter(f => f.id !== fighter.id));
     setMoney(prevMoney => prevMoney + fighter.price);
@@ -47,6 +50,8 @@ const App = () => {
       <h1>Zombie Apocalypse Team Builder</h1>
       <p>Money: ${money}</p>
       
+      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+
       <h2>Available Fighters</h2>
       <ul>
         {zombieFighters.map(fighter => (
